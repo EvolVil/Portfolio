@@ -128,6 +128,8 @@ h2{
     padding-top: 1.5%;
     padding-bottom: 2.5%;
     text-align: center;
+    border-top-style: solid;
+    border-top-color:rgba(2, 3, 53, 0.85);
 }
 
 .footerContactWrapper{
