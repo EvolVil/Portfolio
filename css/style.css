@@ -16,6 +16,10 @@ body{
     display: flex;
 }
 
+.noDecor{
+    text-decoration: none;
+}
+
 
 .header{
     display: flex;
@@ -66,13 +70,13 @@ body{
 
 .footerContactWrapper{
     margin: 0 auto;
+    margin-top: 1.5%;
     width: 40%;
     display: flex;
     justify-content: space-between;
 }
 
 .contactInfo{
-    text-decoration: underline;
     font-size: 1.1em;
     margin-bottom: 5%;
     margin-right: 4%;
@@ -80,6 +84,8 @@ body{
 
 .infoText{
     font-size: 1.1em;
+    color: black;
+    text-decoration: underline;
 }
 
 .contactLinks{

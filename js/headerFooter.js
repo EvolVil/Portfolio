@@ -20,7 +20,7 @@ window.addEventListener('load', function () {
         <div>
             <div class="flex">
                 <p class="contactInfo">Mail:</p>
-                <p class="infoText">love.erlandsson@hotmail.com</p>
+                <a class="infoText" href="mailto:love.erlandsson@hotmail.com">love.erlandsson@hotmail.com</a>
             </div>
             <div class="flex">
                 <p class="contactInfo">Phone:</p>
@@ -28,9 +28,15 @@ window.addEventListener('load', function () {
             </div>
         </div>
         <div class="contactLinks">
-            <img src="Assets/Icons/square-linkedin-brands-solid.png" class="linkIcon">
-            <img src="Assets/Icons/envelope-regular.png" class="linkIcon">
-            <img src="Assets/Icons/itch-io-brands-solid.png" class="linkIcon">
+            <a href="https://www.linkedin.com/in/love-erlandsson-3648a336a/" target="_blank" class="noDecor">
+                <img src="Assets/Icons/square-linkedin-brands-solid.png" class="linkIcon">
+            </a>
+            <a href="mailto:love.erlandsson@hotmail.com" target="_blank" class="noDecor">
+                <img src="Assets/Icons/envelope-regular.png" class="linkIcon">
+            </a>
+            <a href="https://evolvil.itch.io/" target="_blank" class="noDecor">
+                <img src="Assets/Icons/itch-io-brands-solid.png" class="linkIcon">
+            </a>
         </div>
     </div>`
 })
