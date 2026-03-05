@@ -11,6 +11,7 @@ class ProjectElement
     {
         this.boxElement = document.getElementById(elementId);
         this.titleElement = this.boxElement.querySelector(".projectHeader");
+        this.thumbnailImage = this.boxElement.querySelector(".projectThumbnail");
         this.hoveredColor = color;
         this.unhoveredColor = this.boxElement.style.borderColor;
 
@@ -23,8 +24,8 @@ class ProjectElement
         this.isHovered = !this.isHovered;
         let color = this.isHovered ? this.hoveredColor : this.unhoveredColor;
         this.boxElement.style.borderColor = color;
-        this.boxElement.style.padding = this.isHovered ? "1%" : "2%";
         this.titleElement.style.color = color;
+        this.thumbnailImage.style.maxHeight = this.isHovered ? "29.2vh" : "28vh";
     }
 }
 

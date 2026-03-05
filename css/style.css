@@ -150,14 +150,21 @@ body{
     cursor: pointer;
 }
 
+.project:hover{
+    padding: 1% 1% 2%;
+}
+
 .projectThumbnail{
     border-radius: 1rem;
     width: 100%;
     max-height: 28vh;
+    transition: 0.4s;
 }
 
 .projectInfoSection{
+    margin: auto;
     margin-top: 5%;
+    width: 80%;
 }
 
 .subTitle{
