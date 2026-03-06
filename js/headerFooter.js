@@ -1,5 +1,7 @@
 // ▼ ►
 
+const ROOT = (location.hostname == "localhost" || location.hostname == "127.0.0.1" || location.hostname == "") ? "/" : "/Portfolio-webpage/";
+
 const header = document.getElementById('header')
 const footer = document.getElementById('footer')
 var dropdownMenu = null;
@@ -9,11 +11,11 @@ var dropdownOpen = false;
 window.addEventListener('load', function () {
     header.innerHTML = `
     <div class="titleWrapper">
-        <a href="/index.html" class="noDecor"><h1 class="myName">Love Erlandsson</h1></a>
+        <a href="` + ROOT + `index.html" class="noDecor"><h1 class="myName">Love Erlandsson</h1></a>
         <p class="myTitle">Game Programmer</p>
     </div>
     <div class="navBar">
-        <a class="navText" href="/index.html">Home</a>
+        <a class="navText" href="` + ROOT + `index.html">Home</a>
         <div>
             <div class="flex">
                 <a class="projectsButton" onclick="toggleDropdown()" id="projDropdownButton">Projects</a>
@@ -22,21 +24,21 @@ window.addEventListener('load', function () {
             <div class="relativeCentered">
                 <div id="dropdownMenu">
                     <div class="dropdownElement">
-                        <a class="dropdownText" href="/Projects/mother.html">M0THER</a>
+                        <a class="dropdownText" href="` + ROOT + `Projects/mother.html">M0THER</a>
                     </div>
                     <div class="dropdownElement">
-                        <a class="dropdownText" href="/Projects/technomania.html">TECHNOMANIA</a>
+                        <a class="dropdownText" href="` + ROOT + `Projects/technomania.html">TECHNOMANIA</a>
                     </div>
                     <div class="dropdownElement">
-                        <a class="dropdownText" href="/Projects/specialization.html">Specialization</a>
+                        <a class="dropdownText" href="` + ROOT + `Projects/specialization.html">Specialization</a>
                     </div>
                     <div class="dropdownElement">
-                        <a class="dropdownText" href="/Projects/project-echo.html">Project: Echo</a>
+                        <a class="dropdownText" href="` + ROOT + `Projects/project-echo.html">Project: Echo</a>
                     </div>
                 </div>
             </div>
         </div>
-        <a class="navText" href="/aboutMe.html">About me</a>
+        <a class="navText" href="` + ROOT + `aboutMe.html">About me</a>
     </div>`;
 
     footer.innerHTML = `
@@ -54,13 +56,13 @@ window.addEventListener('load', function () {
         </div>
         <div class="contactLinks">
             <a href="https://www.linkedin.com/in/love-erlandsson-3648a336a/" target="_blank" class="noDecor">
-                <img src="/Assets/Icons/InBug-Black.png" class="linkIcon">
+                <img src="` + ROOT + `Assets/Icons/InBug-Black.png" class="linkIcon">
             </a>
             <a href="mailto:love.erlandsson@hotmail.com" target="_blank" class="noDecor">
-                <img src="/Assets/Icons/envelope-regular.png" class="linkIcon">
+                <img src="` + ROOT + `Assets/Icons/envelope-regular.png" class="linkIcon">
             </a>
             <a href="https://evolvil.itch.io/" target="_blank" class="noDecor">
-                <img src="/Assets/Icons/itch-io-brands-solid.png" class="linkIcon">
+                <img src="` + ROOT + `Assets/Icons/itch-io-brands-solid.png" class="linkIcon">
             </a>
         </div>
     </div>`;
