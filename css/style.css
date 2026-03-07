@@ -51,6 +51,10 @@ a{
     text-decoration: underline;
 }
 
+.absolute{
+    position: absolute;
+}
+
 
 /*-- HEADER --*/
 #header{
@@ -232,7 +236,44 @@ a{
 
 
 /*-- Project --*/
+.projectFace{
+}
 
+.projectFaceImage{
+    width: 100%;
+    filter: blur(4px) brightness(85%);
+    z-index: -1;
+}
+
+.projectFaceHeader, .projectShortBox{
+    position: absolute;
+    z-index: 1;
+}
+
+.projectFaceHeader{
+    top: 30vh;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+}
+
+.projectSubtitle{
+    color:rgb(199, 199, 199);
+}
+
+.projectShortBox{
+    top: 50vh;
+    left: 10vw;
+    padding: 2%;
+    background-color: rgba(41, 35, 35, 0.781);
+    border-radius: 2rem;
+    display: flex;
+    white-space: nowrap;
+}
+
+.projectShortText{
+    font-size: 1.2em;
+}
 
 
 /*-- footer --*/
