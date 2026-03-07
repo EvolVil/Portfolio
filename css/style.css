@@ -235,17 +235,14 @@ a{
 }
 
 
-/*-- Project --*/
-.projectFace{
-}
-
+/*-- Project face --*/
 .projectFaceImage{
     width: 100%;
     filter: blur(4px) brightness(85%);
     z-index: -1;
 }
 
-.projectFaceHeader, .projectShortBox{
+.projectFaceHeader, .projectShortBox, .projectSummaryBox{
     position: absolute;
     z-index: 1;
 }
@@ -261,18 +258,45 @@ a{
     color:rgb(199, 199, 199);
 }
 
+.projectShortBox, .projectSummaryBox, .projectSection{
+    padding: 2%;
+    background-color: rgb(41, 35, 35, 0.781);
+    border-radius: 2rem;
+}
+
 .projectShortBox{
     top: 50vh;
     left: 10vw;
-    padding: 2%;
-    background-color: rgba(41, 35, 35, 0.781);
-    border-radius: 2rem;
     display: flex;
     white-space: nowrap;
 }
 
+.projectSummaryBox{
+    top: 50vh;
+    left: 60vw;
+    max-width: 30vw;
+}
+
 .projectShortText{
     font-size: 1.2em;
+}
+
+
+/*-- Project body --*/
+.projectMainBody{
+    margin-top: 5vh;
+}
+
+.projectSection{
+    padding: 0%;
+    margin: 0 auto;
+    margin-top: 5vh;
+    width: 80vw;
+}
+
+.sectionColumn{
+    width: 50%;
+    padding: 2%;
 }
 
 
