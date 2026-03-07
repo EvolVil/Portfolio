@@ -12,7 +12,7 @@ window.addEventListener('load', function () {
     header.innerHTML = `
     <div class="titleWrapper">
         <a href="` + ROOT + `index.html" class="noDecor"><h1 class="myName">Love Erlandsson</h1></a>
-        <p class="myTitle">Game Programmer</p>
+        <p class="myTitle">Gameplay Programmer</p>
     </div>
     <div class="navBar">
         <a class="navText" href="` + ROOT + `index.html">Home</a>
