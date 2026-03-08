@@ -48,8 +48,8 @@
             <div class="sectionColumn">
                 <h2 class="sectionHeader">Background</h2>
                 <p class="bodyText">
-                    When it was time to choose our specialization I wanted to do something regarding AI behavior since I had some experience in the field already, from TECHNOMANIA.
-                    And since I had a lot of fun during our pathfinding assignment I chose to delve into that niche.
+                    When it was time to choose our specialization I wanted to do something with AI behavior since I had some experience in the field already, from TECHNOMANIA.
+                    And since I had a lot of fun during our pathfinding assignment I chose to delve into that niche.<br>
                     During the development of TECHNOMANIA, I was tasked with making behavior for a flying drone enemy.
                     But there was no built-in pathfinding for flying agents, so I had to resort to other behavior tricks. (More details on the TECHNOMANIA page.)
                     So I decided to try my hands on creating that kind of pathfinding.<br><br>
@@ -70,7 +70,48 @@
             <div class="sectionColumn">
                 <h2 class="sectionHeader">The navigation volume</h2>
                 <p class="bodyText">
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quia odit nemo illo eius. Corrupti quia non excepturi blanditiis asperiores temporibus.
+                    Normally pathfinding is done on a navigation mesh generated on the surfaces the agents can walk on.
+                    Flying agents instead need a navigation volume to know where there is open space and where they can't go.<br>
+                    I could have created one by just dividing space into lots of small nodes and remove the blocked ones.
+                    But that would make the volume complex even in large open areas where it doesn’t need to be.<br><br>
+                    Instead I made the navigation volume out of an octree. If an octree node overlaps a collider it will subdivide into eight smaller nodes which also does the overlapping check.
+                    If a node overlapping a collider reaches a minimum size it will be counted as blocked and not be part of the final navigation volume.<br><br>
+                    I use axis aligned bounding boxes (aabb’s) as nodes for the octree, making overlapping checks very fast. It does however limit the volume to a cube shape.<br>
+                    One solution could be to create other shapes to overlap parts that shouldn’t be covered, I didn’t implement this however.<br><br>
+                    My implementation of the navigation volume does not keep the entire octree to save memory, and can therefore only handle static colliders.
+                    If moving dynamic colliders are necessary it might be better to not use an octree to save on computing whenever something moves.
+                </p>
+            </div>
+        </div>
+
+        <div class="sectionRowBorder">
+            <div class="sectionColumn">
+                <p class="bodyText">
+                    The first bigger challenge of the project was finding the neighbors for all of the octree nodes. Knowing the neighbors of all nodes is what makes it a navigation volume.<br><br>
+                    Since the nodes have very different sizes it turned out much more complicated than expected, if I wanted to avoid looping over every node and compare vertex positions.
+                    I eventually solved it, with some help from the internet.<br>
+                    Using multiple recursive functions, every leaf node looks in all directions. If the parent doesn’t have another child in a direction, it steps up a layer in the octree.
+                    If it does, it finds all leaf nodes of this child in the opposite direction, looking at size and specific location to only find neighbors of the original node.<br><br>
+                    It’s still a lot of computation, but it only needs to be done once during loading or pre-baking.
+
+                </p>
+            </div>
+            <div class="sectionColumn">
+                <p>This text is actually an image</p>
+            </div>
+        </div>
+
+        <div class="sectionRowBorder">
+            <div class="sectionColumn">
+                <p>This text is actually an image</p>
+            </div>
+            <div class="sectionColumn">
+                <p class="bodyText">
+                    Another problem I faced with the navigation volume was that the nodes only overlap with the edges of the collision models.
+                    This left gaps inside large colliders where the navigation thought it could pass through.<br><br>
+                    I ended up solving this by doing a final pass when generating the volume where every node not yet blocked does a line trace some distance away.
+                    If the line trace returns an odd number of collisions it’s inside an object, and blocked.<br>
+                    It’s not the most elegant solution, but it works.
                 </p>
             </div>
         </div>

@@ -295,6 +295,11 @@ a{
     padding: 2%;
 }
 
+.sectionRowBorder{
+    display: flex;
+    border-top: solid rgb(187, 255, 124) 1px;
+}
+
 .sectionHeader{
     font-size: 1.8em;
     margin-bottom: 1vh;
