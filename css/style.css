@@ -297,6 +297,14 @@ a{
 
 .sectionRowBorder{
     display: flex;
+}
+
+.sectionRowBorder::before{
+    content: "";
+    position: absolute;
+    width: 70vw;
+    left: 50%;
+    transform: translateX(-50%);
     border-top: solid rgb(187, 255, 124) 1px;
 }
 
