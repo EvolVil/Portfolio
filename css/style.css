@@ -259,7 +259,7 @@ a{
     color:rgb(199, 199, 199);
 }
 
-.projectShortBox, .projectSummaryBox, .projectSection{
+.projectShortBox, .projectSummaryBox, .projectSection, .aboutMeBox{
     padding: 2%;
     background-color: rgb(41, 35, 35, 0.781);
     border-radius: 2rem;
@@ -338,7 +338,7 @@ a{
     padding-left: 0%;
 }
 
-.projectBodyImage{
+.projectBodyImage, .meImage{
     max-width: 100%;
     max-height: 40vh;
 }
@@ -363,6 +363,35 @@ a{
     width: 100%;
     padding: 3%;
     text-align: center;
+}
+
+
+/*-- About me --*/
+.aboutMeBox{
+    width: 40vw;
+    margin-left: 10vw;
+}
+
+.meImageWrapper{
+    margin-top: 5vh;
+    margin-left: 13vw;
+    text-align: center;
+}
+
+.meImage{
+    border-radius: 50rem;
+}
+
+.bottomImageWrapper{
+    width: 35vw;
+    margin: 0 auto;
+    margin-bottom: 20vh;
+    margin-top: 20vh;
+    text-align: center;
+}
+
+.bottomImage{
+    max-width: 100%;
 }
 
 
