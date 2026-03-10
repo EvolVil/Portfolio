@@ -45,7 +45,91 @@
         <img class="projectFaceImage" src="../Assets/Images/Echo/project_echo.png" style="height: 100vh;">
     </div>
 
-    <div class="bigBoi"></div>
+    <div class="projectSection">
+        <div class="flex">
+            <div class="sectionColumn">
+                <h1 class="sectionHeader">My contribution</h1>
+                <p class="bodyText">
+                    My responsibility during this project was the main mechanics of rotating the cylinder segments and the platform the player can slide on a rail.
+                    The interaction system where the player locks on to an interactable object using the device was also my work.<br>
+                    I also created the functionality for turning models placed in the level editor into these interactable objects.<br><br>
+                    During the project I had a lot of focus on making the interactables feel right, using the rumble, adaptive triggersand lights of the PS5 DualSense controller.
+                </p>
+            </div>
+            <div class="sectionColumn">
+                <p>This text is actually an image</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="projectSection">
+        <div class="flex">
+            <div class="sectionColumn">
+                <p>Here be image</p>
+            </div>
+            <div class="sectionColumn">
+                <h1 class="sectionHeader">Rotating cylinder segments</h1>
+                <p class="bodyText">
+                    The main mechanic of the game is rotating these massive tunnel segments. This is done using the gyro of the PS5 controller, or the mouse wheel on PC.
+                    When rotating the controller will provide feedback by rumbling.<br><br>
+                    Being the main mechanic it had to feel right. The segments needed to feel heavy, while not slowing down the gameplay.
+                    They also had to sort of click into place in intervals so the player has an easier time seeing the way forward, while feeling natural.<br>
+                    Finding the right feel was a very iterative process during which I worked closely with the designers. And the end result feels great.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="projectSection">
+        <div class="flex">
+            <div class="sectionColumn">
+                <h1 class="sectionHeader">Pushable platforms</h1>
+                <p class="bodyText">
+                    Thanks to Felix Tabar we already had a platform that could slide on a rail and be affected by gravity.
+                    But we also wanted a variant the player can push or pull.<br>
+                    By tilting the controller up and down (or using the mouse wheel on PC) the player can give the platform some velocity forward or backward.<br>
+                    This felt really good, like you were actually using some kind of force on the platform.
+                </p>
+            </div>
+            <div class="sectionColumn">
+                <p>Imogus</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="projectSection">
+        <div class="flex">
+            <div class="sectionColumn">
+                <p>This is an image</p>
+            </div>
+            <div class="sectionColumn">
+                <h1 class="sectionHeader">Controller feedback</h1>
+                <p class="bodyText">
+                    We wanted the game to be immersive, and the PS5 DualSense controller has great tools for this purpose.<br>
+                    I implemented controller rumble when rotating the cylinder segments and pushing/pulling the sliding platforms.<br>
+                    I also used adaptive triggers to give some resistance when locking on to an interactable and making it feel more “clicky”.<br>
+                    The alien device changes colors depending on what the player is doing, so I made the controller lights also change color along with it.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="projectSection">
+        <div class="flex">
+            <div class="sectionColumn">
+                <h1 class="sectionHeader">Editor functionality</h1>
+                <p class="bodyText">
+                    We needed some way to build levels using our mechanics in TenGine’s level editor, which is separate from the engine.<br>
+                    I set up a system using tags to turn the models into our custom objects when loading the scene.
+                    Tags were also used to give different values to the objects like in other more complex editors.<br>
+                    Tags with id:s were also used to bind different objects together, for example a sliding platform and the points it slides between.
+                </p>
+            </div>
+            <div class="sectionColumn">
+                <p>As you can clearly see, this image is super cool</p>
+            </div>
+        </div>
+    </div>
 
     <footer id="footer"></footer>
 </body>
