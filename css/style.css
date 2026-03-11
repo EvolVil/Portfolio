@@ -259,7 +259,7 @@ a{
     color:rgb(199, 199, 199);
 }
 
-.projectShortBox, .projectSummaryBox, .projectSection, .aboutMeBox{
+.projectShortBox, .projectSummaryBox, .projectSection, .aboutMeBox, .experienceBox{
     padding: 2%;
     background-color: rgb(41, 35, 35, 0.781);
     border-radius: 2rem;
@@ -407,7 +407,14 @@ a{
     width: 35vw;
     margin: 0 auto;
     margin-bottom: 20vh;
-    margin-top: 20vh;
+    margin-top: 12vh;
+    text-align: center;
+}
+
+.experienceBox{
+    width: 60vw;
+    margin: 0 auto;
+    margin-top: 10vh;
     text-align: center;
 }
 
