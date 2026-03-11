@@ -39,7 +39,8 @@
         <div class="projectSummaryBox">
             <h2 style="margin-bottom: 1vh;">Overview</h2>
             <p class="bodyText">
-                The goal with my specialization project was making some kind of 3D navigation mesh, allowing a flying agent to navigate through an environment.
+                The goal with my specialization project was making some kind of 3D navigation mesh, and implement a pathfinding algorithm
+                allowing a flying agent to navigate through an environment.
                 I wanted the system to be easy to use and expand, to just be able to place this "navigation volume" anywhere and use it.
             </p>
         </div>
@@ -56,7 +57,7 @@
                     from <a class="inlineLink" href="technomania.html">TECHNOMANIA</a>.
                     And since I had a lot of fun during our pathfinding assignment I chose to delve into that niche.<br>
                     During the development of TECHNOMANIA, I was tasked with making behavior for a flying drone enemy.
-                    But there was no built-in pathfinding for flying agents, so I had to resort to other behavior tricks. (More details on the TECHNOMANIA page.)
+                    But there was no built-in pathfinding for flying agents, and I had to resort to other behavior tricks. (More details on the TECHNOMANIA page.)
                     So I decided to try my hands on creating that kind of pathfinding.<br><br>
                     I chose TenGine because I wanted to write in raw C++ in an environment I was familiar with. And Unreal does not really have raw C++ in the same way.
                 </p>
@@ -88,8 +89,8 @@
                     Instead I made the navigation volume out of an octree. If an octree node overlaps a collider it will subdivide into eight smaller nodes which also does the overlapping check.
                     If a node overlapping a collider reaches a minimum size it will be counted as blocked and not be part of the final navigation volume.<br><br>
                     I use axis aligned bounding boxes (aabb’s) as nodes for the octree, making overlapping checks very fast. It does however limit the volume to a cube shape.<br>
-                    One solution could be to create other shapes to overlap parts that shouldn’t be covered, I didn’t implement this however.<br><br>
-                    My implementation of the navigation volume does not keep the entire octree to save memory, and can therefore only handle static colliders.
+                    One way to work around this could be to create other shapes to overlap parts that shouldn’t be covered. I didn’t implement this however.<br><br>
+                    My implementation of the navigation volume does not keep the entire octree in order to save memory, and can therefore only handle static colliders.
                     If moving dynamic colliders are necessary it might be better to not use an octree to save on computing whenever something moves.
                 </p>
             </div>
@@ -175,7 +176,7 @@
             <div class="sectionColumn">
                 <h2 class="sectionHeader">Modifying the algorithm</h2>
                 <p class="bodyText">
-                    Normal A* creates a path that zic-zacks between nodes in a not so optimal way. To fix this I looked into an algorithm called Theta*.<br>
+                    Normal A* creates a path that travels from node to node in a not so optimal way. To fix this I looked into an algorithm called Theta*.<br>
                     Theta* is the same as A*, except it checks if the opened node’s parent has line of sight with the neighbor.
                     If it does, the opened node’s parent is set as the parent of the neighbor as well.<br>
                     This algorithm gave very nice and straight lines. But I used a line trace to make the line of sight check, which is not a very fast operation.
@@ -215,7 +216,7 @@
                     To make it follow paths nicely it needs to modify what the algorithm spits out slightly.
                     Since itself and the target does not have to be in the middle of a node the start and end points are switched out to the current and target position.
                     A line of sight check is also done to see if the target is actually reachable.<br>
-                    This had the unintended side effect of allowing the agent to go outside of the navigation volume, as long as there are no obstacles.<br><br>
+                    This had the unintended side effect of allowing the agent to go outside of the navigation volume as long as there are no obstacles, which was kinda cool.<br><br>
                     I also made it able to follow the player by finding a new path after a small amount of time. Not super fancy, but it ended up working surprisingly well.
                 </p>
             </div>
@@ -243,12 +244,12 @@
             <div class="sectionColumn">
                 <h2 class="sectionHeader">Path smoothing</h2>
                 <p class="bodyText">
-                    While the agent can take straight paths through the terrain, it still takes very sharp and unnatural corners.
+                    While the agent can take straight paths through the terrain, it still makes very sharp and unnatural turns.
                     I only had a few days, but I wanted to give it a shot either way.<br><br>
                     My idea was to have the agent look some distance ahead on the path it was following.
-                    If the way wasn’t obstructed it would target where it was looking instead of the old target. This made it take corners much smoother.<br><br>
+                    If the way to where it looked wasn’t obstructed it would target where it was looking instead of the old target. This made it take corners much smoother.<br><br>
                     It works most of the time, but has some flaws I didn’t have time to iron out.
-                    It will still take sharp corners if it’s too close to an obstacle, and if the obstacle is way too close it will not be able to update its target and get stuck targeting its own position.
+                    It will still take sharp turns if it can't optimize the path, and if the obstacle is way too close it will not be able to update its target and get stuck targeting its own position.
                 </p>
             </div>
         </div>

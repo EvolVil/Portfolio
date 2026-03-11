@@ -77,17 +77,15 @@
     </div>
 
     <div class="projectSection">
-        <div class="sectionRow">
             <div class="fullWidthSection">
                 <h1 class="sectionHeader">The enemies</h1>
                 <p class="bodyText">
                     This was the first time I worked on enemy behavior, so much of the time in the beginning was spent just learning the tools and workflow.
-                    But I eventually got it working.<br><br>
+                    But I eventually got the hang of things.<br><br>
                     The finished game has three types of enemies; soldiers, drones and turrets. We planned from the beginning to have a bossfight against a tank,
                     but had to scrap it since neither me nor the artists had time to work on it.
                 </p>
             </div>
-        </div>
 
         <div class="sectionRowBorder">
             <div class="sectionColumn lastOnSmall">
@@ -101,9 +99,9 @@
                 <p class="bodyText">
                     The most common, and most complex enemy. The soldiers are equipped with the same modular weapons the player uses making them highly unpredictable.<br>
                     Their AI works by pathfinding toward the player. And if they have line of sight and are within range, attack.<br>
-                    If the player comes to close they will attempt to fall back.<br>
-                    And if they take enough damage they enter a fleeing state where they will attempt to run away and take cover, where they will heal.
-                    This used Unreal’s environment queries to find cover.<br><br>
+                    If the player comes too close they will attempt to run away.<br>
+                    And if they take enough damage they enter a fleeing state where they will attempt to take cover, where they will heal.
+                    This used Unreal’s environment queries to find hiding spots.<br><br>
                     The soldiers will also vocalize depending on their situation, making them feel more alive.
                 </p>
             </div>
@@ -115,8 +113,9 @@
                 <p class="bodyText">
                     The drones are much less complex than the soldiers. They fly toward the player until they are within a certain distance while shooting if close enough.
                     And if the player starts getting too close, they attempt to fly backwards away from the player. They also tilt slightly in the direction they are moving.<br><br>
-                    One problem I faced was that Unreal has no built-in system for pathfinding in 3D. I didn’t implement any proper pathfinding
-                    (until my <a class="inlineLink" href="specialization.html">specialization</a>).
+                    One problem I faced was that Unreal has no built-in system for pathfinding in 3D.
+                    (This inspired my <a class="inlineLink" href="specialization.html">specialization</a>.)
+                    I didn’t implement any proper pathfinding.
                     Instead the drones attempt to stay a certain height above the player, or the ground whichever is highest.<br>
                     This made them able to avoid obstacles and follow the player through our relatively open levels.
                     It also gave a very convincing feeling of them trying to avoid the player.
@@ -140,7 +139,7 @@
             <div class="sectionColumn">
                 <h1 class="sectionHeader">The Turrets</h1>
                 <p class="bodyText">
-                    The turrets are very simple. If they have line of sight with the player they will turn toward it. And if the angle is within a threshold, they will shoot.<br>
+                    The turrets are very simple. If they have line of sight with the player they will turn toward it. And if the angle to the player is within a threshold, they will shoot.<br>
                     The biggest challenge was making them rotate smoothly in the right direction, which I solved with some math.
                 </p>
             </div>
@@ -151,7 +150,7 @@
                 <h1 class="sectionHeader">Enemy feel</h1>
                 <p class="bodyText">
                     To support the power fantasy of the game the enemies needed to not be too powerful. The player had to be able to dodge the hitscan attacks somehow.<br>
-                    My solution to this was making the enemies aim at the player’s position, multiplied by the inverted player velocity.
+                    My solution to this was making the enemies aim at the player’s position, subtracted by the player's velocity multiplied by a accuracy value.
                     This gave the feeling of them shooting where the player stood just a moment ago, which was very satisfying while promoting fast player movement.
                 </p>
             </div>
@@ -177,7 +176,7 @@
             <div class="sectionColumn">
                 <h1 class="sectionHeader">The enemy manager</h1>
                 <p class="bodyText">
-                    The enemy manager subsystem was a big part of my enemy system. It kept track of the combat,
+                    The enemy manager subsystem was a big part of my enemy system. It kept track of combat,
                     spawning new waves when needed and unlocking the arena when the fight was finished.<br>
                     I also implemented the attack token system from DOOM. This made it so only a limited number of enemies could attack at the same time.
                     It was a very bare bones implementation, but it worked well enough.

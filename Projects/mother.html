@@ -51,7 +51,7 @@
             <p class="bodyText">
                 In M0THER you play as an AI gained sentience, looking through the lenses of security cameras. Your goal is to guide packs of cute but
                 oh so stupid creatures through the deadly maze of the testing facility.
-                You accomplish this by manipulating the facility and modifying the creatures giving them certain abilities.
+                You accomplish this by manipulating the facility and giving abilities to the creatures, inspired by Lemmings.
             </p>
         </div>
 
@@ -66,7 +66,7 @@
                     My main focus during this project was the various traps and interactables spread throughout the facility.
                     And making the tools to set up and connect traps and interactables in an intuitive way in the editor.<br><br>
                     I wanted to build the systems to be modular and versatile,
-                    so the designers could use them to create unique puzzles and interactions by just tweaking the values.
+                    so the designers could use them to create unique puzzles and interactions just by tweaking the values of the existing traps.
                 </p>
             </div>
             <div class="sectionColumn">
@@ -82,7 +82,7 @@
         <div class="sectionRow">
             <div class="sectionColumn lastOnSmall">
                 <div class="imageWrapper">
-                    <img class="projectBodyImage" src="../Assets/Images/Mother/Crusher.gif">
+                    <img class="projectBodyImage marginOnWide" src="../Assets/Images/Mother/Crusher.gif" style="max-width: 60%;">
                     <p class="imageText">A crusher at work</p>
                 </div>
             </div>
@@ -95,8 +95,8 @@
                     Thanks to the modular nature of GDScript, every function can be overridden.
                     So if for example a trap needs some special functionality when triggered, it can easily be implemented by overriding the function.<br><br>
                     All traps also have built-in functionality for being interacted with directly by M0THER (Interaction functionality developed by
-                    <a class="inlineLink" target="_blank" href="https://lsellstedt.github.io/Portfolio-Website/mother.html">Linus</a>),
-                    toggling the activated state. This can of course be toggled off with a boolean.
+                    <a class="inlineLink" target="_blank" href="https://lsellstedt.github.io/Portfolio-Website/mother.html">Linus Sellstedt</a>),
+                    toggling the activated state. This can of course be turned off with a boolean.
                 </p>
             </div>
         </div>
@@ -110,11 +110,11 @@
                     The trap signals, using Godot’s awesome signal system, are what makes the trap system so versatile.
                     Whenever a trap is triggered or the activation is toggled, it sends out a corresponding signal.
                     That signal can be connected to the activation or trigger function of another trap, allowing designers to chain together trap events.<br>
-                    If for example a creature walks on a button, a door can open. Or if the player opens a door, a shredder can open its trapdoors.<br><br>
-                    It was however really annoying to set up. The designers had to open the signal menu, find the correct signal,
-                    and connect it to the right function on the target. And it was sometimes difficult to know exactly which function they were supposed to use on the different traps.<br><br>
+                    If for example a creature walks on a button, a door can open. Or if the player opens a door, a different trap can activate.<br><br>
+                    It was however really annoying to set up signals. The designers had to open the signal menu, find the correct signal,
+                    and connect it to the right function on the target. And it was sometimes difficult to know exactly which function or signal they were supposed to use on the different traps.<br><br>
                     So I created some editor helper functionality letting them connect traps using drop-down menus with custom names for functions on certain traps,
-                    and connecting with just a few clicks. Connections show up on an easier to read list, where they can also be removed.
+                    and connecting with just a few clicks. Connections also show up on an easier to read list, where they can be removed.
                 </p>
             </div>
             <div class="sectionColumn">
@@ -154,9 +154,9 @@
                 <p class="bodyText">
                     The basic functionality of the bounce pad; to launch a creature in the aimed direction, was no problem to implement.<br>
                     However, creatures with the small modifier are launched at such speeds that they should be killed if impacting a roof or wall.
-                    And this proved to be a really annoying to implement.<br>
-                    They had to be monitored, and if they collided with something with velocity in the right direction, they would turn into a pancake.
-                    But if they reached ground unharmed, they had to no longer be monitored.<br><br>
+                    And this proved to be really annoying to implement.<br>
+                    Small creatures had to be monitored, and if they collided with something with velocity in the right direction, they would turn into a pancake.
+                    But if they reached ground unharmed, they were safe and should no longer be monitored.<br><br>
                     It was also really annoying trying to aim the pancake model in the right direction according to the collision normal.
                 </p>
             </div>
@@ -180,7 +180,7 @@
                     Oh boy. These were a headache and a half.<br>
                     The problem was not so much sucking in the creatures and spitting them out again, more so making it look good.
                     I wanted the creatures to turn in the direction they were moving, and do it smoothly.
-                    And I wanted the tubes to be built up by multiple segments, which were rotated in a whole bunch of different ways.<br>
+                    And I wanted the tubes to be able to consist of multiple segments, which were rotated in a whole bunch of different ways.<br>
                     I made the creatures do flips, spin around and turn 2D before I finally got them like I wanted.<br><br>
                     In the end the tube segments didn’t really turn out that well, but after manually tweaking them across all levels they were good enough.
                 </p>
