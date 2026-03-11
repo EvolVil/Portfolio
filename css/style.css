@@ -523,16 +523,35 @@ a{
 .aboutMeBox{
     width: 40vw;
     margin-left: 10vw;
+
+    @media (max-width: 900px) {
+        width: 80vw;
+    }
 }
 
 .meImageWrapper{
     margin-top: 5vh;
     margin-left: 13vw;
     text-align: center;
+
+    @media (max-width: 900px) {
+        margin-left: 0vw;
+    }
 }
 
 .meImage{
     border-radius: 50rem;
+}
+
+.experienceBox{
+    width: 60vw;
+    margin: 0 auto;
+    margin-top: 10vh;
+    text-align: center;
+
+    @media (max-width: 900px) {
+        width: 80vw;
+    }
 }
 
 .bottomImageWrapper{
@@ -541,13 +560,10 @@ a{
     margin-bottom: 20vh;
     margin-top: 12vh;
     text-align: center;
-}
 
-.experienceBox{
-    width: 60vw;
-    margin: 0 auto;
-    margin-top: 10vh;
-    text-align: center;
+    @media (max-width: 900px) {
+        width: 80vw;
+    }
 }
 
 .bottomImage{
