@@ -285,6 +285,10 @@ a{
     width: 100%;
     filter: blur(4px) brightness(85%);
     z-index: -1;
+
+    @media (max-width: 1200px) {
+        height: 100vh;
+    }
 }
 
 .projectFaceHeader, .projectShortBox, .projectSummaryBox{
@@ -297,6 +301,10 @@ a{
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
+
+    @media (max-width: 1400px) {
+        top: 20vh;
+    }
 }
 
 .projectSubtitle{
@@ -309,16 +317,35 @@ a{
     border-radius: 2rem;
 }
 
-.projectShortBox{
+.projectShortBox, .projectSummaryBox{
     top: 50vh;
+
+    @media (max-width: 1400px) {
+        top: 30vh;
+    }
+}
+
+.projectShortBox{
     left: 10vw;
     white-space: nowrap;
+
+    @media (max-width: 1200px) {
+        left: 50%;
+        transform: translateX(-50%);
+    }
 }
 
 .projectSummaryBox{
-    top: 50vh;
     left: 60vw;
     max-width: 30vw;
+
+    @media (max-width: 1200px) {
+        left: 50%;
+        transform: translateX(-50%);
+        top: 60vh;
+        width: 80vw;
+        max-width: 100%;
+    }
 }
 
 .projectShortText{
