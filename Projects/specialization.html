@@ -48,7 +48,7 @@
     </div>
 
     <div class="projectSection">
-        <div class="flex">
+        <div class="sectionRow">
             <div class="sectionColumn">
                 <h2 class="sectionHeader">Background</h2>
                 <p class="bodyText">
@@ -71,8 +71,8 @@
     </div>
         
     <div class="projectSection">
-        <div class="flex">
-            <div class="sectionColumn">
+        <div class="sectionRow">
+            <div class="sectionColumn lastOnSmall">
                 <div class="imageWrapper">
                     <img class="projectBodyImage" src="../Assets/Images/Pathing/Octree.png" style="max-height: 80vh;">
                     <p class="imageText">The navigation volume octree (red nodes are blocked)</p>
@@ -116,7 +116,7 @@
         </div>
 
         <div class="sectionRowBorder">
-            <div class="sectionColumn">
+            <div class="sectionColumn lastOnSmall">
                 <div class="imageWrapper">
                     <img class="projectBodyImage" src="../Assets/Images/Pathing/InsideCollider.gif">
                     <p class="imageText">Toggling the inside collider check while standing inside a collider</p>
@@ -135,7 +135,7 @@
     </div>
 
     <div class="projectSection">
-        <div class="flex">
+        <div class="sectionRow">
             <div class="sectionColumn">
                 <h2 class="sectionHeader">Pathfinding</h2>
                 <p class="bodyText">
@@ -165,9 +165,9 @@
     </div>
 
     <div class="projectSection">
-        <div class="flex">
-            <div class="sectionColumn">
-                <div class="imageWrapper" style="margin-top: 10vh;">
+        <div class="sectionRow">
+            <div class="sectionColumn lastOnSmall">
+                <div class="imageWrapper marginOnWide">
                     <img class="projectBodyImage" src="../Assets/Images/Pathing/PathingTimes.png">
                     <p class="imageText">Measured time (random paths).<br>From top; Navigation volume, A*, Theta*, Post Processed A*</p>
                 </div>
@@ -183,12 +183,12 @@
                     But I had new ideas. I made another algorithm, the same as A*.
                     But when backtracking I made line of sight checks, like Theta*, to keep the parent node if the new one could see it.<br>
                     This gave paths that were almost as good as the Theta* implementation, while being just a tiny bit slower than the normal A* implementation.<br>
-                    I don’t know if it has an actual name, or if this is just Theta* and I had misunderstood, but I called it “Post processed A*”.
+                    I don’t know if it has an actual name, or if this is just actual Theta* and I had misunderstood, but I called it “Post processed A*”.
                 </p>
             </div>
         </div>
 
-        <div class="sectionRowBorder">
+        <div class="sectionSingleRowBorder">
             <div class="imageRow">
                 <div class="rowImageWrapper">
                     <img class="projectBodyImage" src="../Assets/Images/Pathing/ExampleAStar.png">
@@ -207,7 +207,7 @@
     </div>
 
     <div class="projectSection">
-        <div class="flex">
+        <div class="sectionRow">
             <div class="sectionColumn">
                 <h2 class="sectionHeader">Navigating agent</h2>
                 <p class="bodyText">
@@ -233,8 +233,8 @@
     </div>
 
     <div class="projectSection">
-        <div class="flex">
-            <div class="sectionColumn">
+        <div class="sectionRow">
+            <div class="sectionColumn lastOnSmall">
                 <div class="imageWrapper">
                     <img class="projectBodyImage" src="../Assets/Images/Pathing/PathSmoothing.gif">
                     <p class="imageText">Path smoothing in action (purple line shows target)</p>

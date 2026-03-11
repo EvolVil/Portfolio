@@ -35,7 +35,7 @@ a{
     display: flex;
 }
 
-.flexOnWide, .sectionRowBorder{
+.flexOnWide{
     display: flex;
 
     @media (max-width: 900px) {
@@ -417,20 +417,20 @@ a{
     width: 80vw;
 }
 
-.sectionColumn, .sectionColumnImages{
-    width: 50%;
-    padding: 3%;
+.sectionRow, .sectionRowBorder{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
 
     @media (max-width: 900px) {
-        width: 100%;
+        grid-template-columns: repeat(1, 1fr);
     }
 }
 
-.sectionRowBorder{
-    display: flex;
+.sectionColumn, .sectionColumnImages{
+    padding: 3%;
 }
 
-.sectionRowBorder::before{
+.sectionRowBorder::before, .sectionSingleRowBorder::before{
     content: "";
     position: absolute;
     width: 70vw;
@@ -442,17 +442,37 @@ a{
 .sectionHeader{
     font-size: 1.8em;
     margin-bottom: 1vh;
+
+    @media (max-width: 600px) {
+        font-size: 1.4em;
+    }
 }
 
 .bodyText{
     font-size: 1.18em;
     color: rgb(199, 199, 199);
     line-height: 1.25em;;
+
+    @media (max-width: 600px) {
+        font-size: 1.05em;
+    }
 }
 
 .imageWrapper, .rowImageWrapper{
     justify-content: center;
     text-align: center;
+}
+
+@media (max-width: 900px) {
+    .lastOnSmall{
+        grid-row: 2;
+    }
+}
+
+@media (min-width: 900px) {
+    .marginOnWide{
+        margin-top: 10vh;
+    }
 }
 
 .rowImageWrapper{
@@ -482,6 +502,10 @@ a{
     display: flex;
     justify-content: space-between;
     padding: 3%;
+
+    @media (max-width: 900px) {
+        display: inherit;
+    }
 }
 
 .fullWidthSection{
