@@ -52,7 +52,7 @@ window.addEventListener('load', function () {
             </div>
             <div class="contactTextWrapper">
                 <p class="contactInfo">Phone:</p>
-                <p class="infoText">+46 (0)72 557 07 57</p>
+                <p class="infoText">+46 72 557 07 57</p>
             </div>
         </div>
         <div class="contactLinks">
