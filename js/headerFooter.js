@@ -38,6 +38,7 @@ window.addEventListener('load', function () {
                 </div>
             </div>
         </div>
+        <a class="navText" href="` + ROOT + `Files/CV.pdf">CV</a>
         <a class="projectsButton" onClick="scrollToFooter()">Contact</a>
         <a class="navText" href="` + ROOT + `aboutMe.html">About me</a>
     </div>`;
