@@ -96,7 +96,7 @@
                     So if for example a trap needs some special functionality when triggered, it can easily be implemented by overriding the function.<br><br>
                     All traps also have built-in functionality for being interacted with directly by M0THER (Interaction functionality developed by
                     <a class="inlineLink" target="_blank" href="https://lsellstedt.github.io/Portfolio-Website/mother.html">Linus Sellstedt</a>),
-                    toggling the activated state. This can of course be turned off with a boolean.
+                    toggling the activated state. This can of course be turned off with a checkbox.
                 </p>
             </div>
         </div>
@@ -113,7 +113,7 @@
                     If for example a creature walks on a button, a door can open. Or if the player opens a door, a different trap can activate.<br><br>
                     It was however really annoying to set up signals. The designers had to open the signal menu, find the correct signal,
                     and connect it to the right function on the target. And it was sometimes difficult to know exactly which function or signal they were supposed to use on the different traps.<br><br>
-                    So I created some editor helper functionality letting them connect traps using drop-down menus with custom names for functions on certain traps,
+                    So I created some editor helper functionality, letting them connect traps using drop-down menus with custom names for functions on certain traps,
                     and connecting with just a few clicks. Connections also show up on an easier to read list, where they can be removed.
                 </p>
             </div>
@@ -141,8 +141,8 @@
             <div class="sectionColumn">
                 <h1 class="sectionHeader">The fan trap</h1>
                 <p class="bodyText">
-                    The difficult part with the fan trap was making them blockable by obstacles, like closing a door for example.<br>
-                    I solved it by monitoring the collider for the fan's area of effect. If something - like a door - enters or exits the area,
+                    One difficult part with the fan trap was making them blockable by obstacles, by closing a door for example.<br>
+                    My solution was to monitor the collider for the fan's area of effect. If something - like a door - enters or exits the area,
                     it waits until any animation is finished. Then it does a line trace to its maximum distance to see how far the area of effect stretches after this change.<br><br>
                     This ended up working really well. It also gave me the data needed to adjust the wind vfx without doing any additional checks.
                 </p>
@@ -155,8 +155,8 @@
                     The basic functionality of the bounce pad; to launch a creature in the aimed direction, was no problem to implement.<br>
                     However, creatures with the small modifier are launched at such speeds that they should be killed if impacting a roof or wall.
                     And this proved to be really annoying to implement.<br>
-                    Small creatures had to be monitored, and if they collided with something with velocity in the right direction, they would turn into a pancake.
-                    But if they reached ground unharmed, they were safe and should no longer be monitored.<br><br>
+                    Small creatures are monitored, and if they collide with something with velocity in the right direction, they turn into a pancake.
+                    But if they reach the ground unharmed, they are safe and should no longer be monitored.<br><br>
                     It was also really annoying trying to aim the pancake model in the right direction according to the collision normal.
                 </p>
             </div>
@@ -180,8 +180,8 @@
                     Oh boy. These were a headache and a half.<br>
                     The problem was not so much sucking in the creatures and spitting them out again, more so making it look good.
                     I wanted the creatures to turn in the direction they were moving, and do it smoothly.
-                    And I wanted the tubes to be able to consist of multiple segments, which were rotated in a whole bunch of different ways.<br>
-                    I made the creatures do flips, spin around and turn 2D before I finally got them like I wanted.<br><br>
+                    And I wanted the tubes to be able to consist of multiple segments, which ended up being rotated in a whole bunch of different ways.<br>
+                    I made the creatures do flips, spin on their nose and turn 2D before I finally got them like I wanted.<br><br>
                     In the end the tube segments didn’t really turn out that well, but after manually tweaking them across all levels they were good enough.
                 </p>
             </div>
@@ -193,12 +193,12 @@
             <div class="sectionColumn">
                 <h1 class="sectionHeader">Other contributions</h1>
                 <p class="bodyText">
-                    I did lots of stuff during this project, much of which I no longer even remember. But some I do.<br><br>
-                    One thing I made was the way the creatures tilt when falling or flying upward thanks to a bounce pad.
-                    I did it by using their velocity in y-axis to calculate how fast they should tilt and in what direction.<br>
+                    I did lots of stuff during this project, much of which I no longer even remember. Here are some I do remember.<br><br>
+                    One thing I did was the way the creatures tilt when falling or flying upward.
+                    I made it by using their velocity in y-axis to calculate how fast they should tilt and in what direction.<br>
                     The end result turned out really nice and gave them a lot more life.<br><br>
                     Another thing I made was a script for changing import settings in a large amount of files and reimporting them, per request of an artist.
-                    It took me several hours to research and write the script, the time it would have taken to do it manually.
+                    It took me several hours to research and write the script, about the time it would have taken to do it manually.
                     But with the tool we could do similar things with ease if we needed to again, which we actually did.
                 </p>
             </div>

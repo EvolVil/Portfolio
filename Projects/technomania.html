@@ -98,10 +98,10 @@
                 <h1 class="sectionHeader">The Soldiers</h1>
                 <p class="bodyText">
                     The most common, and most complex enemy. The soldiers are equipped with the same modular weapons the player uses making them highly unpredictable.<br>
-                    Their AI works by pathfinding toward the player. And if they have line of sight and are within range, attack.<br>
+                    Their AI works by moving toward the player. And if they have line of sight and are within range, attack.<br>
                     If the player comes too close they will attempt to run away.<br>
-                    And if they take enough damage they enter a fleeing state where they will attempt to take cover, where they will heal.
-                    This used Unreal’s environment queries to find hiding spots.<br><br>
+                    And if they take enough damage they enter a fleeing state where they attempt to take cover, where they will heal.
+                    I used Unreal’s environment queries to find positions at the right range where they can see the player, and to find hiding spots.<br><br>
                     The soldiers will also vocalize depending on their situation, making them feel more alive.
                 </p>
             </div>
@@ -118,7 +118,7 @@
                     I didn’t implement any proper pathfinding.
                     Instead the drones attempt to stay a certain height above the player, or the ground whichever is highest.<br>
                     This made them able to avoid obstacles and follow the player through our relatively open levels.
-                    It also gave a very convincing feeling of them trying to avoid the player.
+                    It also gave a very convincing feeling of them trying to avoid the player, while not actually staying out of harms way.
                 </p>
             </div>
             <div class="sectionColumn">
@@ -139,7 +139,7 @@
             <div class="sectionColumn">
                 <h1 class="sectionHeader">The Turrets</h1>
                 <p class="bodyText">
-                    The turrets are very simple. If they have line of sight with the player they will turn toward it. And if the angle to the player is within a threshold, they will shoot.<br>
+                    The turrets are very simple. If they have line of sight with the player they will turn toward it. And if the angle to the player is within a certain threshold, they will shoot.<br>
                     The biggest challenge was making them rotate smoothly in the right direction, which I solved with some math.
                 </p>
             </div>
@@ -150,7 +150,7 @@
                 <h1 class="sectionHeader">Enemy feel</h1>
                 <p class="bodyText">
                     To support the power fantasy of the game the enemies needed to not be too powerful. The player had to be able to dodge the hitscan attacks somehow.<br>
-                    My solution to this was making the enemies aim at the player’s position, subtracted by the player's velocity multiplied by a accuracy value.
+                    My solution to this was making the enemies aim at the player’s position, subtracted by the player's velocity multiplied by an accuracy value.
                     This gave the feeling of them shooting where the player stood just a moment ago, which was very satisfying while promoting fast player movement.
                 </p>
             </div>
@@ -186,18 +186,18 @@
 
         <div class="sectionRowBorder">
             <div class="sectionColumn">
-                <h1 class="sectionHeader">Enemy spawner</h1>
+                <h1 class="sectionHeader">Enemy spawners</h1>
                 <p class="bodyText">
                     We wanted arena based combat, with multiple waves of enemies. To allow the designers to create that kind of combat in the editor I created the spawners.<br>
                     Originally intended to just spawn enemies, they became the platform for building combat encounters.
                     Connected to a combat object they are assigned waves, with enemy type, amount and delays.<br>
-                    This data is then sent to the enemy manager when the combat object is triggered.
+                    This data is then sent to the enemy manager when the combat object is triggered, by an enemy noticing the player or a trigger.
                 </p>
             </div>
             <div class="sectionColumn">
                 <div class="imageWrapper">
                     <img class="projectBodyImage" src="../Assets/Images/Techno/TechnoDudes.jpg">
-                    <p class="imageText">You entered the wrong neighbourhood buddy</p>
+                    <p class="imageText">You entered the wrong neighborhood buddy</p>
                 </div>
             </div>
         </div>

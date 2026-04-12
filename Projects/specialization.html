@@ -59,7 +59,7 @@
                     During the development of TECHNOMANIA, I was tasked with making behavior for a flying drone enemy.
                     But there was no built-in pathfinding for flying agents, and I had to resort to other behavior tricks. (More details on the TECHNOMANIA page.)
                     So I decided to try my hands on creating that kind of pathfinding.<br><br>
-                    I chose TenGine because I wanted to write in raw C++ in an environment I was familiar with. And Unreal does not really have raw C++ in the same way.
+                    I chose TenGine because I wanted to write in C++ in an environment I was familiar with, while not being handheld too much.
                 </p>
             </div>
             <div class="sectionColumn">
@@ -86,9 +86,9 @@
                     Flying agents instead need a navigation volume to know where there is open space and where they can't go.<br>
                     I could have created one by just dividing space into lots of small nodes and remove the blocked ones.
                     But that would make the volume complex even in large open areas where it doesn’t need to be.<br><br>
-                    Instead I made the navigation volume out of an octree. If an octree node overlaps a collider it will subdivide into eight smaller nodes which also does the overlapping check.
+                    Instead I made the navigation volume out of an octree. If an octree node overlaps a collider it will subdivide into eight smaller nodes that also does the overlapping check.
                     If a node overlapping a collider reaches a minimum size it will be counted as blocked and not be part of the final navigation volume.<br><br>
-                    I use axis aligned bounding boxes (aabb’s) as nodes for the octree, making overlapping checks very fast. It does however limit the volume to a cube shape.<br>
+                    I used axis aligned bounding boxes (aabb’s) as nodes for the octree, making overlapping checks very fast. It does however limit the shape of the volume to a cube.<br>
                     One way to work around this could be to create other shapes to overlap parts that shouldn’t be covered. I didn’t implement this however.<br><br>
                     My implementation of the navigation volume does not keep the entire octree in order to save memory, and can therefore only handle static colliders.
                     If moving dynamic colliders are necessary it might be better to not use an octree to save on computing whenever something moves.
@@ -102,10 +102,9 @@
                     The first bigger challenge of the project was finding the neighbors for all of the octree nodes. Knowing the neighbors of all nodes is what makes it a navigation volume.<br><br>
                     Since the nodes have very different sizes it turned out much more complicated than expected, if I wanted to avoid looping over every node and compare vertex positions.
                     I eventually solved it, with some help from the internet.<br>
-                    Using multiple recursive functions, every leaf node looks in all directions. If the parent doesn’t have another child in a direction, it steps up a layer in the octree.
+                    Using multiple recursive functions, a leaf node looks in a direction. If the parent doesn’t have another child in that direction, it steps up a layer in the octree.
                     If it does, it finds all leaf nodes of this child in the opposite direction, looking at size and specific location to only find neighbors of the original node.<br><br>
                     It’s still a lot of computation, but it only needs to be done once during loading or pre-baking.
-
                 </p>
             </div>
             <div class="sectionColumn">
@@ -127,9 +126,9 @@
                 <p class="bodyText">
                     Another problem I faced with the navigation volume was that the nodes only overlap with the edges of the collision models.
                     This left gaps inside large colliders where the navigation thought it could pass through.<br><br>
-                    I ended up solving this by doing a final pass when generating the volume where every node not yet blocked does a line trace some distance away.
+                    I ended up solving this by doing a final pass when generating the volume where every node not yet blocked does a sweeping line trace some distance away.
                     If the line trace returns an odd number of collisions it’s inside an object, and blocked.<br>
-                    It’s not the most elegant solution, but it works.
+                    It’s not the most elegant solution, and sometimes the line trace perfectly hits two triangles on the same face. But it works most of the time.
                 </p>
             </div>
         </div>
@@ -182,9 +181,9 @@
                     This algorithm gave very nice and straight lines. But I used a line trace to make the line of sight check, which is not a very fast operation.
                     So my Theta* implementation ended up being much slower than normal A*.<br><br>
                     But I had new ideas. I made another algorithm, the same as A*.
-                    But when backtracking I made line of sight checks, like Theta*, to keep the parent node if the new one could see it.<br>
+                    But when backtracking I made line of sight checks, like Theta*, to keep the parent node if the new node can see it.<br>
                     This gave paths that were almost as good as the Theta* implementation, while being just a tiny bit slower than the normal A* implementation.<br>
-                    I don’t know if it has an actual name, or if this is just actual Theta* and I had misunderstood, but I called it “Post processed A*”.
+                    I don’t know if it has an actual name, or if this is just actual Theta* and I had misunderstood, but here I call it “Post processed A*”.
                 </p>
             </div>
         </div>
@@ -213,10 +212,10 @@
                 <h2 class="sectionHeader">Navigating agent</h2>
                 <p class="bodyText">
                     What good is a pathfinding algorithm without something to follow the paths? Meet the Sphere, my brave test subject.<br><br>
-                    To make it follow paths nicely it needs to modify what the algorithm spits out slightly.
-                    Since itself and the target does not have to be in the middle of a node the start and end points are switched out to the current and target position.
+                    To make it follow paths nicely I need to modify what the algorithm spits out slightly.
+                    Since neither the agent or target have to be in the middle of a node the start and end points are switched out to the current and target position.
                     A line of sight check is also done to see if the target is actually reachable.<br>
-                    This had the unintended side effect of allowing the agent to go outside of the navigation volume as long as there are no obstacles, which was kinda cool.<br><br>
+                    This had the unintended effect of allowing the agent to follow me outside of the navigation volume as long as there are no obstacles, which was kinda cool.<br><br>
                     I also made it able to follow the player by finding a new path after a small amount of time. Not super fancy, but it ended up working surprisingly well.
                 </p>
             </div>
@@ -245,7 +244,7 @@
                 <h2 class="sectionHeader">Path smoothing</h2>
                 <p class="bodyText">
                     While the agent can take straight paths through the terrain, it still makes very sharp and unnatural turns.
-                    I only had a few days, but I wanted to give it a shot either way.<br><br>
+                    I only had a few daysleft , but I wanted to give it a shot either way.<br><br>
                     My idea was to have the agent look some distance ahead on the path it was following.
                     If the way to where it looked wasn’t obstructed it would target where it was looking instead of the old target. This made it take corners much smoother.<br><br>
                     It works most of the time, but has some flaws I didn’t have time to iron out.
