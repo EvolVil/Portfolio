@@ -59,9 +59,9 @@
             <div class="sectionColumn">
                 <h1 class="sectionHeader">My contribution</h1>
                 <p class="bodyText">
-                    My responsibility during this project was the core mechanics of rotating the tunnel segments, and the platforms the player can push or pull.
+                    My responsibility during this project was the central mechanic of rotating the tunnel segments, and manipulating the push/pull platforms.
                     The interaction system where the player locks on to an interactable object using the device was also my work.<br>
-                    I created the functionality for turning models placed in the level editor into these interactable objects as well.<br><br>
+                    I made the system for creating our interactable objects in the level editor as well.<br><br>
                     During the project I also had a lot of focus on making the interactables feel right, using the rumble, haptic feedback, adaptive triggers and lights of the PS5 DualSense controller.
                 </p>
             </div>
@@ -83,12 +83,12 @@
                 </div>
             </div>
             <div class="sectionColumn">
-                <h1 class="sectionHeader">Rotating cylinder segments</h1>
+                <h1 class="sectionHeader">Rotating tunnel segments</h1>
                 <p class="bodyText">
                     The main mechanic of the game is rotating these massive tunnel segments. This is done using the gyro of the PS5 controller, or the mouse wheel on PC.
                     When rotating the controller will provide feedback by rumbling.<br><br>
-                    Being the main mechanic it had to feel right. The segments needed to feel heavy, while not slowing down the gameplay.
-                    They also had to sort of click into place in intervals so the player has an easier time finding their way forward, while at the same time feeling natural.<br>
+                    Being the main mechanic it had to feel right. The segments needed to feel heavy, while not slowing down gameplay.
+                    We also wanted them to snap into place in intervals so the player has an easier time finding their way forward, while at the same time feeling natural.<br>
                     Finding the right feel was a very iterative process during which I worked closely with the designers. And the end result is pretty good.
                 </p>
             </div>
@@ -98,11 +98,11 @@
     <div class="projectSection">
         <div class="sectionRow">
             <div class="sectionColumn">
-                <h1 class="sectionHeader">Pushable platforms</h1>
+                <h1 class="sectionHeader">Push/Pull platforms</h1>
                 <p class="bodyText">
                     Thanks to <a class="inlineLink" target="_blank" href="https://felitaba.github.io/echo/index.html">Felix Tabar</a>
                     we already had a platform that could slide on a rail and be affected by gravity.
-                    But we also wanted a variant the player can push or pull.<br>
+                    But we also needed a variant the player could push or pull.<br>
                     By tilting the controller up and down (or using the mouse wheel on PC) the player can give the platform some velocity forward or backward.<br>
                     This felt really good, like you were actually using some kind of force on the platform.
                 </p>
@@ -146,13 +146,15 @@
                     We needed some way to build levels using our mechanics in TenGine’s level editor, which is separate from the engine.<br>
                     I set up a system using tags to turn the models into our custom objects when loading the scene.
                     Tags were also used to give different values to the objects like in other more complex editors.<br>
-                    Tags with id:s were also used to bind different objects together, for example a sliding platform and the points it slides between.
+                    Tags with id:s were also used to bind different objects together, for example a sliding platform and the points it slides between.<br><br>
+                    To make it easier for the designers to follow all the rules we made a document with descriptions on how to set up the systems.
+                    Using examples and images it greatly helped reduce confusion and saved time.
                 </p>
             </div>
             <div class="sectionColumn">
                 <div class="imageWrapper">
-                    <img class="projectBodyImage" src="../Assets/Images/Echo/TorsionPoster.jpg">
-                    <p class="imageText">Poster from Torsion's office at the tunnel entrance</p>
+                    <img class="projectBodyImage" src="../Assets/Images/Echo/EditorDocument.jpg">
+                    <p class="imageText">The document explaining editor setup</p>
                 </div>
             </div>
         </div>
