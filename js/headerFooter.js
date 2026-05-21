@@ -30,7 +30,7 @@ window.addEventListener('load', function () {
                         <a class="dropdownText" href="` + ROOT + `Projects/technomania.html">TECHNOMANIA</a>
                     </div>
                     <div class="dropdownElement">
-                        <a class="dropdownText" href="` + ROOT + `Projects/specialization.html">Specialization</a>
+                        <a class="dropdownText" href="` + ROOT + `Projects/specialization.html">3D Pathfinding</a>
                     </div>
                     <div class="dropdownElement">
                         <a class="dropdownText" href="` + ROOT + `Projects/project-echo.html">Project: Echo</a>
